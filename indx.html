@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learn with Gautam | Trader & Educator</title>
+    <meta name="description" content="Learn chart reading, price action, market structure and risk management step by step.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0f10;
+            color: #f4f0e8;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            padding-bottom: 105px;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        /* TOP PROFILE */
+        .profile-header {
+            padding: 25px 42px 28px;
+            border-bottom: 1px solid #2b3032;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-image {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #c99a43;
+            background: #151a1c;
+            flex-shrink: 0;
+        }
+
+        .profile-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 31px;
+            line-height: 1.1;
+            color: #d7b06a;
+            font-weight: 700;
+        }
+
+        .profile-role {
+            margin-top: 5px;
+            color: #8d8f91;
+            font-size: 20px;
+        }
+
+        /* MAIN */
+        .main {
+            padding: 80px 42px 40px;
+        }
+
+        .community {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #68aa9c;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 17px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        .community-dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #62b19f;
+            box-shadow: 0 0 0 8px rgba(98, 177, 159, 0.12);
+            flex-shrink: 0;
+        }
+
+        .hero-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 58px;
+            line-height: 1.08;
+            font-weight: 400;
+            margin-bottom: 35px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title .gold {
+            color: #d7aa5d;
+            font-style: italic;
+        }
+
+        .hero-description {
+            color: #a9abad;
+            font-size: 23px;
+            line-height: 1.55;
+            margin-bottom: 52px;
+        }
+
+        /* CTA */
+        .telegram-button {
+            width: 100%;
+            min-height: 78px;
+            border: none;
+            border-radius: 6px;
+            background: #c99a43;
+            color: #090b0c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .telegram-button:hover {
+            background: #ddb15f;
+            transform: translateY(-1px);
+        }
+
+        .telegram-icon {
+            width: 34px;
+            height: 34px;
+            fill: currentColor;
+        }
+
+        .button-note {
+            text-align: center;
+            color: #9b9d9f;
+            font-size: 17px;
+            margin-top: 21px;
+        }
+
+        /* LEARNING SECTION */
+        .learning {
+            margin-top: 85px;
+        }
+
+        .learning-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 39px;
+            font-weight: 400;
+            margin-bottom: 34px;
+        }
+
+        .lesson {
+            border-top: 1px solid #303436;
+            padding: 31px 0 34px;
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 0;
+        }
+
+        .lesson-number {
+            color: #c6a45e;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+        }
+
+        .lesson-content h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 27px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .lesson-content p {
+            color: #9fa2a4;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* SECOND CTA */
+        .mid-cta {
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* DISCLAIMER */
+        .disclaimer {
+            border-top: 1px solid #303436;
+            margin-top: 45px;
+            padding-top: 30px;
+            color: #707477;
+            font-size: 13px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 35px 20px 20px;
+            color: #64686a;
+            font-size: 13px;
+        }
+
+        /* FIXED BOTTOM CTA */
+        .bottom-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            background: rgba(11, 15, 16, 0.96);
+            border-top: 1px solid #292d2f;
+            padding: 14px 42px;
+            backdrop-filter: blur(8px);
+        }
+
+        .bottom-button {
+            max-width: 670px;
+            margin: 0 auto;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            body {
+                padding-bottom: 96px;
+            }
+
+            .profile-header {
+                padding: 20px 42px 25px;
+                gap: 16px;
+            }
+
+            .profile-image {
+                width: 68px;
+                height: 68px;
+            }
+
+            .profile-name {
+                font-size: 25px;
+            }
+
+            .profile-role {
+                font-size: 17px;
+            }
+
+            .main {
+                padding: 72px 42px 35px;
+            }
+
+            .community {
+                font-size: 14px;
+                letter-spacing: 3px;
+                margin-bottom: 27px;
+            }
+
+            .community-dot {
+                width: 11px;
+                height: 11px;
+            }
+
+            .hero-title {
+                font-size: 45px;
+                line-height: 1.08;
+                margin-bottom: 32px;
+            }
+
+            .hero-description {
+                font-size: 20px;
+                line-height: 1.55;
+                margin-bottom: 42px;
+            }
+
+            .telegram-button {
+                min-height: 70px;
+                font-size: 20px;
+            }
+
+            .telegram-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .button-note {
+                font-size: 15px;
+            }
+
+            .learning {
+                margin-top: 70px;
+            }
+
+            .learning-title {
+                font-size: 34px;
+                margin-bottom: 28px;
+            }
+
+            .lesson {
+                grid-template-columns: 58px 1fr;
+                padding: 28px 0;
+            }
+
+            .lesson-content h3 {
+                font-size: 23px;
+            }
+
+            .lesson-content p {
+                font-size: 16px;
+            }
+
+            .bottom-bar {
+                padding: 10px 18px;
+            }
+
+            .bottom-button {
+                min-height: 62px;
+                font-size: 18px;
+            }
+        }
+
+        /* VERY SMALL MOBILE */
+        @media (max-width: 380px) {
+
+            .profile-header,
+            .main {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .profile-name {
+                font-size: 22px;
+            }
+
+            .hero-title {
+                font-size: 39px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .learning-title {
+                font-size: 30px;
+            }
+
+            .lesson {
+                grid-template-columns: 48px 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- PROFILE HEADER -->
+    <header class="profile-header">
+
+        <!-- Change profile.jpg to your own image -->
+        <img
+            src="profile.jpg"
+            alt="Gautam profile"
+            class="profile-image"
+        >
+
+        <div>
+            <div class="profile-name">Learn with Gautam</div>
+            <div class="profile-role">Trader &amp; educator</div>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- COMMUNITY LABEL -->
+        <div class="community">
+            <span class="community-dot"></span>
+            <span>FREE TELEGRAM COMMUNITY</span>
+        </div>
+
+
+        <!-- HERO -->
+        <h1 class="hero-title">
+            Learn to read <span class="gold">charts,</span><br>
+            not chase signals.
+        </h1>
+
+
+        <p class="hero-description">
+            Structured lessons on price action, structure,
+            and risk — taught step by step, so the skill
+            actually stays with you.
+        </p>
+
+
+        <!-- MAIN TELEGRAM BUTTON -->
+        <!-- CHANGE YOUR TELEGRAM LINK HERE -->
+        <a
+            href="https://t.me/YOUR_USERNAME"
+            class="telegram-button"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <!-- Telegram SVG -->
+            <svg
+                class="telegram-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path d="M21.9 3.1c-.3-.3-.8-.4-1.3-.2L2.8 9.8c-.7.3-.7 1.3 0 1.6l4.5 1.5 1.7 5.5c.2.6 1 .8 1.5.4l2.5-2.1 4.6 3.4c.6.4 1.4.1 1.6-.6l3.2-15.2c.1-.5-.1-1-.5-1.2zM8.2 12.4l9.8-6.1-7.9 7.4-.3 2.8-1.1-3.7-3.1-1 2.6-.9zm3.1 5.1.3-2.4 1.1 1.1-1.4 1.3zm5.4.6-5.1-3.8 7.1-10.4-2 14.2z"/>
+            </svg>
+
+            <span>Join on Telegram</span>
+
+        </a>
+
+
+        <div class="button-note">
+            Free to join · Leave anytime · No card needed
+        </div>
+
+
+        <!-- WHAT YOU WILL LEARN -->
+        <section class="learning">
+
+            <h2 class="learning-title">
+                What you'll actually learn
+            </h2>
+
+
+            <!-- LESSON 01 -->
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    01
+                </div>
+
+                <div class="lesson-content">
+
+                    <h3>
+                        Chart-reading fundamentals
+                    </h3>
+
+                    <p>
+                        Candles, structure, support &amp; resistance —
+                        the vocabulary before anything else makes sense.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LESSON 02 -->
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    02
+                </div>
+
+                <div class="lesson-content">
+
+                    <h3>
+                        Live setup breakdowns
+                    </h3>
+
+                    <p>
+                        Learn how to study real chart setups and
+                        understand the reasoning behind a trade idea.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LESSON 03 -->
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    03
+                </div>
+
+                <div class="lesson-content">
+
+                    <h3>
+                        Price action &amp; market structure
+                    </h3>
+
+                    <p>
+                        Understand trends, key levels, breakouts
+                        and market structure step by step.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LESSON 04 -->
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    04
+                </div>
+
+                <div class="lesson-content">
+
+                    <h3>
+                        Risk management
+                    </h3>
+
+                    <p>
+                        Learn the basics of position sizing,
+                        risk control and disciplined decision making.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LESSON 05 -->
+            <div class="lesson">
+
+                <div class="lesson-number">
+                    05
+                </div>
+
+                <div class="lesson-content">
+
+                    <h3>
+                        Trading psychology
+                    </h3>
+
+                    <p>
+                        Build a structured approach instead of
+                        making decisions based on emotions or hype.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECOND CTA -->
+            <div class="mid-cta">
+
+                <a
+                    href="https://t.me/YOUR_USERNAME"
+                    class="telegram-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <svg
+                        class="telegram-icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M21.9 3.1c-.3-.3-.8-.4-1.3-.2L2.8 9.8c-.7.3-.7 1.3 0 1.6l4.5 1.5 1.7 5.5c.2.6 1 .8 1.5.4l2.5-2.1 4.6 3.4c.6.4 1.4.1 1.6-.6l3.2-15.2c.1-.5-.1-1-.5-1.2zM8.2 12.4l9.8-6.1-7.9 7.4-.3 2.8-1.1 1.1-.3-3.7-3.1-1 2.6-.9zm3.1 5.1.3-2.4 1.1 1.1-1.4 1.3zm5.4.6-5.1-3.8 7.1-10.4-2 14.2z"/>
+                    </svg>
+
+                    <span>Join Free on Telegram</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- DISCLAIMER -->
+            <div class="disclaimer">
+                Educational content only. Trading and investing involve
+                risk. Past performance does not guarantee future results.
+                Please make decisions based on your own research.
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        © 2026 Learn with Gautam. All rights reserved.
+    </footer>
+
+</div>
+
+
+<!-- FIXED BOTTOM TELEGRAM BUTTON -->
+<div class="bottom-bar">
+
+    <a
+        href="https://t.me/YOUR_USERNAME"
+        class="telegram-button bottom-button"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <svg
+            class="telegram-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <path d="M21.9 3.1c-.3-.3-.8-.4-1.3-.2L2.8 9.8c-.7.3-.7 1.3 0 1.6l4.5 1.5 1.7 5.5c.2.6 1 .8 1.5.4l2.5-2.1 4.6 3.4c.6.4 1.4.1 1.6-.6l3.2-15.2c.1-.5-.1-1-.5-1.2zM8.2 12.4l9.8-6.1-7.9 7.4-.3 2.8-1.1 1.1-1.1-3.7-3.1-1 2.6-.9zm3.1 5.1.3-2.4 1.1 1.1-1.4 1.3zm5.4.6-5.1-3.8 7.1-10.4-2 14.2z"/>
+        </svg>
+
+        <span>Join Free on Telegram</span>
+
+    </a>
+
+</div>
+
+
+</body>
+</html>
